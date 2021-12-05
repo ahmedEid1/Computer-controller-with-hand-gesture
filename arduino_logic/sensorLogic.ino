@@ -1,26 +1,18 @@
-/*
- * Program for gesture control VLC Player
- * Controlled uisng Python
- * Code by B.Aswinth Raj
- * Dated: 11-10-2017
- * Website: www.circuitdigest.com
- */
-
-const int trigger1 = 4; //Trigger pin of 1st Sesnor (LEFT)
-const int echo1 = 5; //Echo pin of 1st Sesnor (LEFT)
-const int trigger2 = 2; //Trigger pin of 2nd Sesnor (RIGHT)
-const int echo2 = 3;//Echo pin of 2nd Sesnor (RIGHT)
+const int trigger1 = 4; // (LEFT)
+const int echo1 = 5; // (LEFT)
+const int trigger2 = 2; // (RIGHT)
+const int echo2 = 3; // (RIGHT)
 
 long time_taken;
-int dist,distL,distR;
+int dist, distL, distR;
 
 void setup() {
-Serial.begin(9600); 
-  
-pinMode(trigger1, OUTPUT); 
-pinMode(echo1, INPUT); 
-pinMode(trigger2, OUTPUT); 
-pinMode(echo2, INPUT); 
+Serial.begin(9600);
+
+pinMode(trigger1, OUTPUT);
+pinMode(echo1, INPUT);
+pinMode(trigger2, OUTPUT);
+pinMode(echo2, INPUT);
 }
 
 /*###Function to calculate distance###*/
@@ -38,23 +30,22 @@ if (dist>50)
 dist = 50;
 }
 
-void loop() { 
+void loop() {
   //infinite loopy
 calculate_distance(trigger1,echo1);
-distL =dist; //get distance of left sensor
+distL =dist;
 
 calculate_distance(trigger2,echo2);
-distR =dist; //get distance of right sensor
+distR =dist;
 
-//Uncomment for debudding
+//Uncomment for debugging
 /*Serial.print("L=");
 Serial.println(distL);
 Serial.print("R=");
 Serial.println(distR);
 */
 
-//Pause Modes -Hold
-if ((distL >40 && distR>40) && (distL <50 && distR<50)) //Detect both hands
+if ((distL >40 && distR>40) && (distL <50 && distR<50))
 {Serial.println("Play/Pause"); delay (500);}
 
 calculate_distance(trigger1,echo1);
@@ -77,7 +68,7 @@ if (distL>=13 && distL<=17)
     {
       calculate_distance(trigger1,echo1);
       distL =dist;
-      if (distL<10) //Hand pushed in 
+      if (distL<10) //Hand pushed in
       {Serial.println ("Vup"); delay (300);}
       if (distL>20) //Hand pulled out
       {Serial.println ("Vdown"); delay (300);}
@@ -103,7 +94,6 @@ if (distR>=13 && distR<=17)
       if (distR>20) //Right hand pulled out
       {Serial.println ("Forward"); delay (300);}
   }
-    Serial.println("out of Right Locked");
 }
 }
 
