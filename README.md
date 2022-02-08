@@ -46,4 +46,4 @@ output, if the output contains:
 
 
 ## Circuit Diagram
-![circuitdiagram](../Computer-controller-with-hand-gesture/Control-your-Computer-with-Hand-Gestures-using-Arduino-circuit%20(1).jpg)
+![circuitdiagram](Control-your-Computer-with-Hand-Gestures-using-Arduino-circuit%20(1).jpg)
