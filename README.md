@@ -43,4 +43,7 @@ output, if the output contains:
     - in "Right lock" while distR<=40:
       - if (distR<10) => print "Rewind"
       - if (distR>20) => print "Forward"
- 
+
+
+## Circuit Diagram
+![circuitdiagram](../Computer-controller-with-hand-gesture/Control-your-Computer-with-Hand-Gestures-using-Arduino-circuit%20(1).jpg)
